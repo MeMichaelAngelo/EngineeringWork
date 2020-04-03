@@ -1,0 +1,16 @@
+h2 {
+    text-align: center;
+}
+
+h4, h5, h6 {
+    text-align: center;
+}
+
+.marleft {
+    margin-right: 10%;
+}
+
+.center {
+    display: block;
+    margin: auto;
+}

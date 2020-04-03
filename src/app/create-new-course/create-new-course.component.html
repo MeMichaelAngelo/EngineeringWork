@@ -1,0 +1,103 @@
+
+<div class="row">
+
+    <div class="col-12 col-md-5 margin_right">
+<form [formGroup]="angForm" novalidate>
+
+    <div class="form-group">
+        <label>Course Name</label>
+        <input class="form-control" formControlName="CourseName" [(ngModel)]="courseName" required><br>
+        <div *ngIf="angForm.controls['CourseName'].invalid && (angForm.controls['CourseName'].dirty || angForm.controls['CourseName'].touched || angForm.controls['CourseName'].value === '')" class="alert alert-danger">
+            <div *ngIf="angForm.controls['CourseName'].errors.required">
+                Course name is required.
+        </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Question</label>
+        <input class="form-control" formControlName="question" [(ngModel)]="Question" required><br>
+        <div *ngIf="angForm.controls['question'].invalid && (angForm.controls['question'].dirty || angForm.controls['question'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['question'].errors.required">
+                Question is required.
+          </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+<label>Answer 1</label>
+<input class="form-control" formControlName="answer1" [(ngModel)]="Answer1" required><br>
+<div *ngIf="angForm.controls['answer1'].invalid && (angForm.controls['answer1'].dirty || angForm.controls['answer1'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['answer1'].errors.required">
+                First answer is required.
+          </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Answer 2</label>
+        <input class="form-control" formControlName="answer2" [(ngModel)]="Answer2" required><br>
+        <div *ngIf="angForm.controls['answer2'].invalid && (angForm.controls['answer2'].dirty || angForm.controls['answer2'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['answer2'].errors.required">
+                Second answer is required.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+<label>Answer 3</label>
+<input class="form-control" formControlName="answer3" [(ngModel)]="Answer3" required><br>
+    <div *ngIf="angForm.controls['answer3'].invalid && (angForm.controls['answer3'].dirty || angForm.controls['answer3'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['answer3'].errors.required">
+            Third answer is required.
+        </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+<label>Answer 4</label>
+<input class="form-control" formControlName="answer4" [(ngModel)]="Answer4" required><br>
+    <div *ngIf="angForm.controls['answer4'].invalid && (angForm.controls['answer4'].dirty || angForm.controls['answer4'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['answer4'].errors.required">
+            Fourth answer is required.
+        </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+<label>Correct answer</label>
+<input class="form-control" formControlName="CorrectAnswer" [(ngModel)]="correctAnswer" required><br>
+    <div *ngIf="angForm.controls['CorrectAnswer'].invalid && (angForm.controls['CorrectAnswer'].dirty || angForm.controls['CorrectAnswer'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['CorrectAnswer'].errors.required">
+            Correct answer is required.
+        </div>
+    </div>
+    </div>
+</form>
+
+
+<button [disabled]="!angForm.valid" type="button" class="btn btn-primary" (click)="addQuestion()">Add question</button>
+<br><br>
+<button type="button" class="btn btn-success" (click)="createQuiz()">Create Quiz</button>
+</div>
+
+    <div class="col-12 col-md-6">
+        <div class="row">
+            <div *ngFor="let question of Array; let i = index">
+                <div class="col-12 col-md-9">
+                {{i+1}}. Question: {{question.pytanie}}<br>
+                A: {{question.A}}<br>
+                B: {{question.B}}<br>
+                C: {{question.C}}<br>
+                D: {{question.D}}<br>
+                Correct Answer: {{question.poprawnaOdpowiedz}}<br><!-- zrobić bordera po szerokości-->
+                <button type="button" class="btn btn-danger" (click)="delete(i)">Remove</button><br><br>
+                </div>
+                
+                    
+                
+            </div>
+        </div>
+    </div>
+
+</div>

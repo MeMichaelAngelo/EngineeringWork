@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-12">
+        
+            <div *ngFor="let question of pytania; let i = index">
+                <form>
+                Question: {{question.pytanie}}<br>
+                <input type="radio" id="firstID"  [value]="question.A"> A: {{question.A}}<br>
+                <input type="radio" id="secondID" [value]="question.B"> B: {{question.B}}<br>
+                <input type="radio" id="thirdID"  [value]="question.C"> C: {{question.C}}<br>
+                <input type="radio" id="fourthID" [value]="question.D"> D: {{question.D}}<br>
+                <input type="hidden" id="correctAnswer">{{question.poprawnaOdpowiedz}}<br>
+                _________________________________
+                </form>
+            </div>
+        <button (click)="checkAnswers()">Check</button>
+        
+    </div>
+</div>
